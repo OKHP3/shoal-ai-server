@@ -14,7 +14,7 @@ SHOAL (Shared Home/Office AI, Locally) server implementation. Local AI inference
 [ TODO: Languages, frameworks, key dependencies ]
 
 ## Local Paths
-- **Windows**: `C:\Users\jamie\OKH-Local\Projects\shoal-ai-server`
+- **Windows**: `C:\Users\jamie\OKH-Local\04_GitHub_Mirrors\shoal-ai-server`
 - **Mac**: `[ Not cloned on Mac — clone from GitHub ]`
 
 ## Key Conventions
