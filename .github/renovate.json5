@@ -1,0 +1,39 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "America/Chicago",
+  "schedule": ["before 6am on monday"],
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["ghcr.io/open-webui/open-webui"],
+      "allowedVersions": "/^v\\d+\\.\\d+\\.\\d+$/"
+    },
+    {
+      "matchDatasources": ["pypi"],
+      "matchPackageNames": ["open-webui"],
+      "allowedVersions": "/^\\d+\\.\\d+\\.\\d+$/"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^docs\\/reef-setup\\.md$/"],
+      "matchStrings": [
+        "ghcr\\.io/open-webui/open-webui:(?<currentValue>v\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "ghcr.io/open-webui/open-webui"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^docs\\/reef-setup\\.md$/"],
+      "matchStrings": [
+        "pip install open-webui==(?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "datasourceTemplate": "pypi",
+      "depNameTemplate": "open-webui"
+    }
+  ]
+}

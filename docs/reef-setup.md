@@ -70,14 +70,14 @@ docker run -d \
   -p 3000:8080 \
   -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
   -v open-webui:/app/backend/data \
-  ghcr.io/open-webui/open-webui:main
+  ghcr.io/open-webui/open-webui:v0.10.2
 ```
 
 On Linux hosts (not Docker Desktop), replace `host.docker.internal` with `172.17.0.1` or the host's LAN IP.
 
 **Without Docker:**
 ```bash
-pip install open-webui
+pip install open-webui==0.10.2
 open-webui serve --host 0.0.0.0 --port 3000
 ```
 

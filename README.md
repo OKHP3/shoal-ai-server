@@ -67,6 +67,7 @@ Every client device accesses the AI through a browser. No app installs. No clien
 | [docs/remote-access.md](docs/remote-access.md) | Accessing your SHOAL from outside the house (Tailscale) |
 | [docs/cost-comparison.md](docs/cost-comparison.md) | SHOAL vs. cloud subscriptions: the honest math |
 | [docs/privacy-case.md](docs/privacy-case.md) | Why local matters: law firms, medical, real estate, families |
+| [docs/technology-inventory.md](docs/technology-inventory.md) | Technology inventory, version snapshot, and update policy |
 
 ## Repo Structure
 
@@ -117,6 +118,8 @@ MIT. See [LICENSE](LICENSE).
 
 Configuration guides and methodology are shared freely.
 Hardware recommendations are current as of June 2026 and will drift.
+
+Technology versions and update tracking are documented in [docs/technology-inventory.md](docs/technology-inventory.md). Enable the Renovate GitHub App to receive pull requests when pinned Open WebUI references have newer stable releases.
 
 ---
 
