@@ -75,6 +75,8 @@ Every client device accesses the AI through a browser. No app installs. No clien
 shoal-ai-server/
 ├── README.md
 ├── LICENSE
+├── .agents/                     # Repository-local Agent Skills and prompts
+├── .github/                     # GitHub maintenance configuration
 ├── docs/                         # How to set up and run a SHOAL
 │   ├── reef-setup.md             # Inference server install (Ollama + Open WebUI)
 │   ├── fish-guide.md             # Client device connection guide (all platforms)
@@ -89,7 +91,12 @@ shoal-ai-server/
 ├── configs/                      # Sanitized example configurations
 │   └── example-configs/
 ├── research/                     # Source research (may go stale)
-│   └── 2026-06-research.md       # Initial landscape research
+│   ├── 2026-06-research.md       # Initial landscape research
+│   └── shared-local-ai-servers-for-soho-smb.md
+├── context/                      # Durable project and conversation context
+│   └── threads/
+├── skills/                       # Publication mirrors for selected local skills
+│   └── okhp3-skill-promotion/
 └── article/                      # Content play staging
     └── drafts/
 ```

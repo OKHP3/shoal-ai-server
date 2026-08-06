@@ -42,9 +42,13 @@ Out of scope for the current repository:
 ## Repository structure
 
 - `README.md`: project overview, SHOAL vocabulary, reference builds, software stack, and document map.
+- `.agents/`: repository-local Agent Skills and prompts used to support project work.
+- `.github/`: GitHub maintenance configuration. It does not define an SHOAL runtime.
 - `docs/`: setup, client-device, multi-user, remote-access, cost, and privacy guidance.
 - `builds/`: budget, sweet-spot, and power reference hardware builds.
 - `research/`: dated research and source synthesis. Treat prices, model names, product behavior, and performance numbers as time-sensitive.
+- `context/`: durable project and conversation context extracts. These are provenance-bearing context artifacts, not server implementation.
+- `skills/`: publication mirrors for selected repository-local skills. The active source remains under `.agents/skills/`.
 - `article/drafts/`: content staging area. It is currently empty.
 - `configs/example-configs/`: reserved for sanitized examples. It is currently empty.
 - `.agents/skills/`: repository-local agent skills and their supporting references. These have their own skill-specific instructions.
