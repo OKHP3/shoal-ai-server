@@ -68,6 +68,7 @@ Every client device accesses the AI through a browser. No app installs. No clien
 | [docs/cost-comparison.md](docs/cost-comparison.md) | SHOAL vs. cloud subscriptions: the honest math |
 | [docs/privacy-case.md](docs/privacy-case.md) | Why local matters: law firms, medical, real estate, families |
 | [docs/technology-inventory.md](docs/technology-inventory.md) | Technology inventory, version snapshot, and update policy |
+| [docs/openclaw-gateway-integration.md](docs/openclaw-gateway-integration.md) | Extending a reef with an agent gateway (OpenClaw) beyond the core Ollama + Open WebUI stack |
 
 ## Repo Structure
 
