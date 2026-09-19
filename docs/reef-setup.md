@@ -76,6 +76,9 @@ docker run -d \
 On Linux hosts (not Docker Desktop), replace `host.docker.internal` with `172.17.0.1` or the host's LAN IP.
 
 **Without Docker:**
+
+Use a dedicated Python 3.11 or 3.12 environment. The [current Open WebUI quick start](https://docs.openwebui.com/getting-started/quick-start/) supports these lines; the newest Python release is not necessarily compatible. Check the package's Python requirements again when upgrading.
+
 ```bash
 pip install open-webui==0.10.2
 open-webui serve --host 0.0.0.0 --port 3000
@@ -114,6 +117,7 @@ New-NetFirewallRule -DisplayName "Open WebUI LAN" -Direction Inbound -LocalPort 
 - [Connect client devices](fish-guide.md)
 - [Set up users and permissions](multi-user.md)
 - [Enable remote access](remote-access.md)
+- [Review technology versions and the update plan](technology-update-plan.md)
 
 ---
 *Part of [SHOAL: Shared Home/Office AI, Locally](../README.md)*

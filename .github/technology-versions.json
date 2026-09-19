@@ -1,0 +1,114 @@
+{
+  "purpose": "Upstream release review baselines only. These values do not select or install a runtime. Actual Open WebUI pins remain in docs/reef-setup.md.",
+  "seededAtUtc": "2026-09-19T02:50:31Z",
+  "reviewPlan": "docs/technology-update-plan.md",
+  "technologies": [
+    {
+      "name": "Ollama",
+      "depName": "ollama/ollama",
+      "currentValue": "v0.34.2",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "Docker Engine",
+      "depName": "moby/moby",
+      "currentValue": "29.8.1",
+      "datasource": "github-releases",
+      "versioning": "semver",
+      "extractVersion": "^docker-v(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "name": "Tailscale",
+      "depName": "tailscale/tailscale",
+      "currentValue": "v1.102.4",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "WSL",
+      "depName": "microsoft/WSL",
+      "currentValue": "2.7.14",
+      "datasource": "github-releases",
+      "versioning": "semver"
+    },
+    {
+      "name": "Python, latest stable language release",
+      "depName": "python",
+      "currentValue": "3.14.7",
+      "datasource": "python-version",
+      "versioning": "python"
+    },
+    {
+      "name": "Node.js, latest stable Current release",
+      "depName": "node",
+      "currentValue": "26.9.0",
+      "datasource": "node-version",
+      "versioning": "node"
+    },
+    {
+      "name": "npm",
+      "depName": "npm",
+      "currentValue": "12.0.2",
+      "datasource": "npm",
+      "versioning": "semver"
+    },
+    {
+      "name": "pip",
+      "depName": "pip",
+      "currentValue": "26.2.1",
+      "datasource": "pypi",
+      "versioning": "pep440"
+    },
+    {
+      "name": "PowerShell",
+      "depName": "PowerShell/PowerShell",
+      "currentValue": "v7.6.6",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "Git upstream",
+      "depName": "git/git",
+      "currentValue": "2.55.0",
+      "datasource": "github-tags",
+      "versioning": "semver",
+      "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
+    },
+    {
+      "name": "GitHub CLI",
+      "depName": "cli/cli",
+      "currentValue": "v2.101.0",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "OpenClaw, optional gateway",
+      "depName": "openclaw/openclaw",
+      "currentValue": "v2026.9.5",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "Homebrew, optional host package manager",
+      "depName": "Homebrew/brew",
+      "currentValue": "7.0.4",
+      "datasource": "github-releases",
+      "versioning": "semver"
+    },
+    {
+      "name": "systemd",
+      "depName": "systemd/systemd",
+      "currentValue": "v261.3",
+      "datasource": "github-releases",
+      "versioning": "semver-coerced"
+    },
+    {
+      "name": "Renovate service, reference only",
+      "depName": "renovate",
+      "currentValue": "44.103.2",
+      "datasource": "npm",
+      "versioning": "semver"
+    }
+  ]
+}

@@ -14,7 +14,7 @@
 
 **Confirmed:** This repository explains and stages a private, shared AI-server pattern for homes and small offices. The documented pattern is one local host, called the reef, running Ollama for inference and Open WebUI for browser-based multi-user access. Client devices, called fish, connect through a browser over the local network. Tailscale is the documented optional path for remote access.
 
-**Confirmed:** The checkout contains Markdown documentation, hardware reference builds, research, and empty staging directories. It does not currently contain an SHOAL server implementation, application source, package manifest, container definition, deployment script, or automated test suite.
+**Confirmed:** The checkout contains Markdown documentation, hardware reference builds, research, empty staging directories, and contributor Agent Skills. The skills include Python and JavaScript helpers, seven private package manifests, and skill-specific tests. There is no SHOAL server implementation, root application/package manifest, container definition, deployment script, or project-wide automated test suite.
 
 **Inferred mission:** Make local AI practical for households and small offices by documenting the hardware, setup, multi-user, privacy, cost, and remote-access decisions needed to operate one shared box.
 
@@ -44,6 +44,7 @@ Out of scope for the current repository:
 - `README.md`: project overview, SHOAL vocabulary, reference builds, software stack, and document map.
 - `.agents/`: repository-local Agent Skills and prompts used to support project work.
 - `.github/`: GitHub maintenance configuration. It does not define an SHOAL runtime.
+- `.github/technology-versions.json`: upstream release review baselines consumed by Renovate, not installed versions or deployment targets.
 - `docs/`: setup, client-device, multi-user, remote-access, cost, and privacy guidance.
 - `builds/`: budget, sweet-spot, and power reference hardware builds.
 - `research/`: dated research and source synthesis. Treat prices, model names, product behavior, and performance numbers as time-sensitive.
@@ -77,11 +78,11 @@ The documented external stack is:
 - macOS, Linux, or Windows with WSL2 as possible reef environments.
 - Tailscale as the documented remote-access option.
 
-No language runtime, framework, dependency lockfile, or supported deployment target is defined by this repository itself.
+There is no server runtime, framework, dependency lockfile, or supported deployment target defined by this repository. Contributor skills use Python standard-library helpers and Node.js scripts/tests. Their nested manifests declare no external packages or shared engine pin. See `docs/technology-inventory.md` for dated evidence and `docs/technology-update-plan.md` for maintenance and activation checks.
 
 ## Validation and working commands
 
-There is no project build, test, lint, or deployment command to run at present. Before changing documentation:
+There is no project-wide build, test, lint, or deployment command. Individual skills provide their own helpers and tests. Validate Renovate changes with its configuration validator and inspect extraction of both Open WebUI pins and all release-ledger entries. A local check does not prove the hosted App is active. Before changing documentation:
 
 - Confirm referenced local paths exist.
 - Check Markdown links and code blocks manually.
@@ -117,7 +118,8 @@ Do not claim that an Ollama or Open WebUI command was executed unless it was act
 
 ## Known gaps and open questions
 
-- The repository has no implemented server runtime or automated validation.
+- The repository has no implemented server runtime or project-wide automated validation; skill-specific tests are separate contributor tooling.
+- Renovate configuration covers Open WebUI pins and upstream review baselines. Hosted App activation and successful scheduled execution must be verified separately.
 - The supported production deployment model is undefined.
 - Exact upstream versions, model recommendations, hardware prices, and performance figures require periodic refresh.
 - Ownership and maintenance responsibilities are not documented in the repository.

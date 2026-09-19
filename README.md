@@ -68,6 +68,7 @@ Every client device accesses the AI through a browser. No app installs. No clien
 | [docs/cost-comparison.md](docs/cost-comparison.md) | SHOAL vs. cloud subscriptions: the honest math |
 | [docs/privacy-case.md](docs/privacy-case.md) | Why local matters: law firms, medical, real estate, families |
 | [docs/technology-inventory.md](docs/technology-inventory.md) | Technology inventory, version snapshot, and update policy |
+| [docs/technology-update-plan.md](docs/technology-update-plan.md) | Weekly release tracking, activation, compatibility checks, and host upgrades |
 | [docs/openclaw-gateway-integration.md](docs/openclaw-gateway-integration.md) | Extending a reef with an agent gateway (OpenClaw) beyond the core Ollama + Open WebUI stack |
 
 ## Repo Structure
@@ -127,7 +128,7 @@ MIT. See [LICENSE](LICENSE).
 Configuration guides and methodology are shared freely.
 Hardware recommendations are current as of June 2026 and will drift.
 
-Technology versions and update tracking are documented in [docs/technology-inventory.md](docs/technology-inventory.md). Enable the Renovate GitHub App to receive pull requests when pinned Open WebUI references have newer stable releases.
+Technology versions are documented in [docs/technology-inventory.md](docs/technology-inventory.md). The [update plan](docs/technology-update-plan.md) covers weekly Renovate pull requests for Open WebUI pins and upstream release references, plus separate host upgrades. Enable and verify the Renovate GitHub App before treating the configured schedule as active.
 
 ---
 

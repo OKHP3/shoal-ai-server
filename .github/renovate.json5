@@ -4,7 +4,27 @@
   "timezone": "America/Chicago",
   "schedule": ["before 6am on monday"],
   "dependencyDashboard": true,
+  "ignoreUnstable": true,
+  "automerge": false,
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
   "packageRules": [
+    {
+      "matchFileNames": [".github/technology-versions.json"],
+      "groupName": "upstream technology review",
+      "separateMajorMinor": false,
+      "prBodyNotes": [
+        "These are upstream review baselines, not installed versions. Follow docs/technology-update-plan.md and refresh the dated inventory after review. Merging this PR does not upgrade a reef."
+      ]
+    },
+    {
+      "matchPackageNames": ["ghcr.io/open-webui/open-webui", "open-webui"],
+      "groupName": "Open WebUI documentation pins",
+      "separateMajorMinor": false,
+      "prBodyNotes": [
+        "Keep the Docker and pip examples on the same release. Verify Python compatibility, release notes, a disposable installation, and backup/restore before merging. See docs/technology-update-plan.md."
+      ]
+    },
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["ghcr.io/open-webui/open-webui"],
@@ -17,6 +37,14 @@
     }
   ],
   "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "json",
+      "managerFilePatterns": ["/^\\.github\\/technology-versions\\.json$/"],
+      "matchStrings": [
+        "technologies.{\"depName\": depName, \"currentValue\": currentValue, \"datasource\": datasource, \"versioning\": versioning, \"extractVersion\": extractVersion}"
+      ]
+    },
     {
       "customType": "regex",
       "managerFilePatterns": ["/^docs\\/reef-setup\\.md$/"],
