@@ -70,6 +70,7 @@ Every client device accesses the AI through a browser. No app installs. No clien
 | [docs/technology-inventory.md](docs/technology-inventory.md) | Technology inventory, version snapshot, and update policy |
 | [docs/technology-update-plan.md](docs/technology-update-plan.md) | Weekly release tracking, activation, compatibility checks, and host upgrades |
 | [docs/openclaw-gateway-integration.md](docs/openclaw-gateway-integration.md) | Extending a reef with an agent gateway (OpenClaw) beyond the core Ollama + Open WebUI stack |
+| [docs/program-status.md](docs/program-status.md) | Living readiness/blocker tracker across this household's three SHOAL repos |
 
 ## Repo Structure
 
