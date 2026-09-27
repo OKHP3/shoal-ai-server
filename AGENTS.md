@@ -42,6 +42,8 @@ Out of scope for the current repository:
 ## Repository structure
 
 - `README.md`: project overview, SHOAL vocabulary, reference builds, software stack, and document map.
+- `assets/brand/`: README/social illustration, project mark, favicons, and home-screen/pinned-tab icons. These are presentation assets, not an application or deployment.
+- `docs/branding.md`: asset provenance, publication status, and a future hosted-page metadata template. Repository assets do not activate GitHub social previews or website metadata by themselves.
 - `.agents/`: repository-local Agent Skills and prompts used to support project work.
 - `.github/`: GitHub maintenance configuration. It does not define an SHOAL runtime.
 - `.github/technology-versions.json`: upstream release review baselines consumed by Renovate, not installed versions or deployment targets.
