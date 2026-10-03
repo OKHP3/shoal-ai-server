@@ -137,3 +137,5 @@ Do not turn these gaps into assumptions. Record verified decisions here when the
 A live reef combining Ollama, Open WebUI, and an OpenClaw agent gateway is documented in those two repos. `docs/openclaw-gateway-integration.md` in this repo carries the generic version of the bind-address-discovery playbook they use; it is documentation-only and machine-agnostic per this repo's scope rules above, with the household-specific IPs, ports, and terminal output living in the other two repos instead.
 
 Keep this file aligned with the repository as it changes. It is the canonical project guide; `CLAUDE.md` should remain a short compatibility pointer unless Claude-specific instructions are genuinely required.
+
+## Imported Claude Cowork project instructions
