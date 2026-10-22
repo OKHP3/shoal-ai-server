@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - '.github/**'
+      - '.agents/skills/**'
       - 'docs/reef-setup.md'
   push:
     branches: [main]
     paths:
       - '.github/**'
+      - '.agents/skills/**'
       - 'docs/reef-setup.md'
   schedule:
     # Monday 10:17 UTC is before 06:00 in America/Chicago year-round.
@@ -23,6 +25,23 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  skill-tests:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    steps:
+      - name: Check out reviewed source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify the seven contributor skill packages
+        shell: bash
+        run: |
+          node --version
+          node --test .agents/skills/*/tests/validate-skill.test.mjs
+
   validate:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -36,7 +55,7 @@ jobs:
 
   watch:
     if: github.event_name != 'pull_request'
-    needs: validate
+    needs: [validate, skill-tests]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:

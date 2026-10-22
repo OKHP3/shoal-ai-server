@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
@@ -14,7 +14,7 @@ function read(rel) { return readFileSync(join(SKILL_ROOT, rel), 'utf-8'); }
 function exists(rel) { return existsSync(join(SKILL_ROOT, rel)); }
 
 function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  const match = content.replace(/\r\n/g, '\n').match(/^---\n([\s\S]*?)\n---/);
   if (!match) return null;
   const fm = {};
   for (const line of match[1].split('\n')) {
@@ -28,8 +28,14 @@ function parseFrontmatter(content) {
 }
 
 test('SKILL.md exists', () => assert.ok(exists('SKILL.md')));
+
+test('frontmatter survives CRLF checkouts', () => {
+  const original = read('SKILL.md');
+  const crlf = original.replace(/\r?\n/g, '\r\n');
+  assert.deepEqual(parseFrontmatter(crlf), parseFrontmatter(original));
+});
 test('name matches directory', () => {
-  assert.equal(parseFrontmatter(read('SKILL.md')).name, 'future-state-and-change-strategy');
+  assert.equal(parseFrontmatter(read('SKILL.md')).name, basename(SKILL_ROOT));
 });
 test('bp_skill_version present', () => assert.ok(parseFrontmatter(read('SKILL.md')).bp_skill_version));
 test('standards_refs non-empty', () => assert.ok(read('SKILL.md').includes('ADKAR') || read('SKILL.md').includes('Kotter')));
@@ -46,12 +52,12 @@ const FILES = [
 for (const f of FILES) test(`exists: ${f}`, () => assert.ok(exists(f)));
 
 test('generateFutureState exports named function', async () => {
-  const mod = await import(join(SKILL_ROOT, 'scripts/generate-future-state.mjs'));
+  const mod = await import(new URL('../scripts/generate-future-state.mjs', import.meta.url));
   assert.equal(typeof mod.generateFutureState, 'function');
 });
 
 test('generateFutureState returns { valid, errors, warnings, futureState }', async () => {
-  const { generateFutureState } = await import(join(SKILL_ROOT, 'scripts/generate-future-state.mjs'));
+  const { generateFutureState } = await import(new URL('../scripts/generate-future-state.mjs', import.meta.url));
   const result = generateFutureState({ process_id: 'test', gaps: [] });
   assert.equal(typeof result.valid, 'boolean');
   assert.ok(Array.isArray(result.errors));
