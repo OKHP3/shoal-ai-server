@@ -13,6 +13,8 @@ Each hosted run writes a dated summary and retains a JSON/Markdown artifact for 
 
 Pull requests run the checker's regression tests with read-only access. Canonical-branch monitoring additionally receives `issues: write`; it has no code-write, deployment, approval, or administration permission. Checkout credentials are not persisted. Only GitHub API requests receive the built-in workflow token; registry and vendor requests do not receive it.
 
+The same workflow runs all seven contributor skill test packages on Linux and Windows when skill files change. Their imported checks previously expected obsolete, unprefixed skill names and used absolute filesystem paths as ES-module URLs. The closeout repair compares names with their actual package directories, imports helpers using relative file URLs, and verifies frontmatter with CRLF line endings. It preserves the skill instructions, description limits, and behavioral assertions. These are contributor checks, not server or deployment tests.
+
 Run locally with an explicit approved report destination:
 
 ```text
