@@ -6,14 +6,14 @@
     {
       "name": "Ollama",
       "depName": "ollama/ollama",
-      "currentValue": "v0.34.2",
+      "currentValue": "v0.40.8",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "Docker Engine",
       "depName": "moby/moby",
-      "currentValue": "29.8.1",
+      "currentValue": "29.9.2",
       "datasource": "github-releases",
       "versioning": "semver",
       "extractVersion": "^docker-v(?<version>\\d+\\.\\d+\\.\\d+)$"
@@ -21,56 +21,56 @@
     {
       "name": "Tailscale",
       "depName": "tailscale/tailscale",
-      "currentValue": "v1.102.4",
+      "currentValue": "v1.104.2",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "WSL",
       "depName": "microsoft/WSL",
-      "currentValue": "2.7.14",
+      "currentValue": "3.0.3",
       "datasource": "github-releases",
       "versioning": "semver"
     },
     {
       "name": "Python, latest stable language release",
       "depName": "python",
-      "currentValue": "3.14.7",
+      "currentValue": "3.15.1",
       "datasource": "python-version",
       "versioning": "python"
     },
     {
       "name": "Node.js, latest stable Current release",
       "depName": "node",
-      "currentValue": "26.9.0",
+      "currentValue": "26.12.1",
       "datasource": "node-version",
       "versioning": "node"
     },
     {
       "name": "npm",
       "depName": "npm",
-      "currentValue": "12.0.2",
+      "currentValue": "12.2.1",
       "datasource": "npm",
       "versioning": "semver"
     },
     {
       "name": "pip",
       "depName": "pip",
-      "currentValue": "26.2.1",
+      "currentValue": "26.2.2",
       "datasource": "pypi",
       "versioning": "pep440"
     },
     {
       "name": "PowerShell",
       "depName": "PowerShell/PowerShell",
-      "currentValue": "v7.6.6",
+      "currentValue": "v7.6.7",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "Git upstream",
       "depName": "git/git",
-      "currentValue": "2.55.0",
+      "currentValue": "2.56.0",
       "datasource": "github-tags",
       "versioning": "semver",
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$"
@@ -78,37 +78,38 @@
     {
       "name": "GitHub CLI",
       "depName": "cli/cli",
-      "currentValue": "v2.101.0",
+      "currentValue": "v2.103.0",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "OpenClaw, optional gateway",
       "depName": "openclaw/openclaw",
-      "currentValue": "v2026.9.5",
+      "currentValue": "v2026.10.6",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "Homebrew, optional host package manager",
       "depName": "Homebrew/brew",
-      "currentValue": "7.0.4",
+      "currentValue": "7.0.10",
       "datasource": "github-releases",
       "versioning": "semver"
     },
     {
       "name": "systemd",
       "depName": "systemd/systemd",
-      "currentValue": "v261.3",
+      "currentValue": "v262.1",
       "datasource": "github-releases",
       "versioning": "semver-coerced"
     },
     {
       "name": "Renovate service, reference only",
       "depName": "renovate",
-      "currentValue": "44.103.2",
+      "currentValue": "44.176.4",
       "datasource": "npm",
       "versioning": "semver"
     }
-  ]
+  ],
+  "reviewedAtUtc": "2026-10-22T13:36:42+00:00"
 }

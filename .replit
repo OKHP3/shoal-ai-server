@@ -1,0 +1,3 @@
+# Contributor workspace only. There is no SHOAL server or website deployment.
+modules = ["python-3.12", "nodejs-24"]
+run = "python3 -B -m unittest discover -s .github/scripts/tests -v"

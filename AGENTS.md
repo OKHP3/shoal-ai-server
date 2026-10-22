@@ -45,8 +45,9 @@ Out of scope for the current repository:
 - `assets/brand/`: README/social illustration, project mark, favicons, and home-screen/pinned-tab icons. These are presentation assets, not an application or deployment.
 - `docs/branding.md`: asset provenance, publication status, and a future hosted-page metadata template. Repository assets do not activate GitHub social previews or website metadata by themselves.
 - `.agents/`: repository-local Agent Skills and prompts used to support project work.
-- `.github/`: GitHub maintenance configuration. It does not define an SHOAL runtime.
+- `.github/`: GitHub maintenance configuration, a standard-library Python release checker, and a weekly release-watch workflow. It does not define a SHOAL runtime or deploy a website.
 - `.github/technology-versions.json`: upstream release review baselines consumed by Renovate, not installed versions or deployment targets.
+- `.replit`: contributor workspace modules (Python 3.12 and Node.js 24) and a maintenance-test Run command. It defines no web server, exposed port, or deployment.
 - `docs/`: setup, client-device, multi-user, remote-access, cost, and privacy guidance.
 - `builds/`: budget, sweet-spot, and power reference hardware builds.
 - `research/`: dated research and source synthesis. Treat prices, model names, product behavior, and performance numbers as time-sensitive.
@@ -84,7 +85,7 @@ There is no server runtime, framework, dependency lockfile, or supported deploym
 
 ## Validation and working commands
 
-There is no project-wide build, test, lint, or deployment command. Individual skills provide their own helpers and tests. Validate Renovate changes with its configuration validator and inspect extraction of both Open WebUI pins and all release-ledger entries. A local check does not prove the hosted App is active. Before changing documentation:
+There is no project-wide application build, test, lint, or deployment command. Individual skills provide their own helpers and tests. Run maintenance regression checks with `python -B -m unittest discover -s .github/scripts/tests -v`. Run `.github/scripts/technology_watch.py` with an explicit approved `--output-dir` to refresh the upstream report. The weekly workflow runs those checks and monitors 15 ledger entries, both Open WebUI example pins, and its two action pins. It reports review candidates and source failures without upgrading software or changing version pins. A hosted run proves its own trigger; a future scheduled execution must be observed separately. Validate Renovate changes with its configuration validator and inspect extraction of both Open WebUI pins and all release-ledger entries. A local check does not prove the hosted App is active. Before changing documentation:
 
 - Confirm referenced local paths exist.
 - Check Markdown links and code blocks manually.
@@ -121,7 +122,7 @@ Do not claim that an Ollama or Open WebUI command was executed unless it was act
 ## Known gaps and open questions
 
 - The repository has no implemented server runtime or project-wide automated validation; skill-specific tests are separate contributor tooling.
-- Renovate configuration covers Open WebUI pins and upstream review baselines. Hosted App activation and successful scheduled execution must be verified separately.
+- Renovate configuration covers Open WebUI pins and upstream review baselines. Hosted App activation and successful scheduled execution must be verified separately. The native release-watch workflow provides independent detection; it does not automate acceptance or live installation.
 - The supported production deployment model is undefined.
 - Exact upstream versions, model recommendations, hardware prices, and performance figures require periodic refresh.
 - Ownership and maintenance responsibilities are not documented in the repository.
