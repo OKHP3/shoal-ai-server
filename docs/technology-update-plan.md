@@ -3,7 +3,28 @@
 **Prepared:** 2026-09-18, America/Chicago.
 **Scope:** SHOAL documentation, reference versions, and contributor tooling. A live reef remains an independently operated host.
 
-## What is configured
+## Native release monitoring, added 2026-10-22
+
+[Technology release watch](../.github/workflows/technology-watch.yml) runs every Monday at 10:17 UTC, before 06:00 in America/Chicago throughout the year. It also runs after relevant changes reach `main` and supports a manual run. Its [Python standard-library checker](../.github/scripts/technology_watch.py) needs no third-party App, new secret, package installation, or reef access.
+
+The checker reads all 15 existing ledger entries, the two Open WebUI example pins, and the two immutable action pins in its own workflow. It queries primary GitHub, npm, PyPI, Python, and Node release sources. Complete stable labels are required; prerelease labels are rejected. A source error, baseline ahead of the fetched release, or disagreement between Open WebUI's GitHub and PyPI releases fails the check visibly. The Docker example is compared with the publisher's release; the matching container tag must still be checked before accepting a pin update.
+
+Each hosted run writes a dated summary and retains a JSON/Markdown artifact for 14 days. Findings maintain one bot-owned [Technology release review issue](https://github.com/OKHP3/shoal-ai-server/issues?q=is%3Aissue+%22Technology+release+review%22). Repeated unchanged findings do not edit the issue or send repeated comments. Once the reviewed baselines catch up and no source failures remain, the checker closes its issue. It never edits a human-owned issue. New-release findings are successful detection, not checker failures.
+
+Pull requests run the checker's regression tests with read-only access. Canonical-branch monitoring additionally receives `issues: write`; it has no code-write, deployment, approval, or administration permission. Checkout credentials are not persisted. Only GitHub API requests receive the built-in workflow token; registry and vendor requests do not receive it.
+
+Run locally with an explicit approved report destination:
+
+```text
+python -B -m unittest discover -s .github/scripts/tests -v
+python -B .github/scripts/technology_watch.py --output-dir <approved-report-directory>
+```
+
+Local validation on 2026-10-22 passed 14 regression tests and verified all 19 release lookups. The first lookup exposed dated Python link labels; the parser was corrected and a regression fixture added before all lookups passed. The original September inventory remains a dated snapshot. Read the latest [hosted run](https://github.com/OKHP3/shoal-ai-server/actions/workflows/technology-watch.yml) for current candidate versions and source status. A manual or push run proves execution of that trigger, not a future scheduled run.
+
+The workflow detects and tracks review work. Updating a ledger baseline acknowledges reviewed upstream research only. Updating the paired documentation pins requires the acceptance sequence below. No action installs software, substitutes a model, or upgrades a live reef automatically.
+
+## Optional Renovate update proposals
 
 [Renovate configuration](../.github/renovate.json5) checks before 06:00 Monday in `America/Chicago`. It excludes unstable releases, limits concurrent PRs to three, and leaves automatic merging disabled.
 
@@ -16,9 +37,9 @@ Renovate's [JSONata manager](https://docs.renovatebot.com/modules/manager/jsonat
 
 The [inventory](technology-inventory.md) is a dated research snapshot. The ledger's `seededAtUtc` records initial creation only. On accepting a release-review PR, update the inventory's versions, sources, and verification date. Never present an unchanged snapshot date as a new check or change "unknown installed" to "installed" based on a release feed.
 
-## Activate and prove it works
+## Activate and verify Renovate if used
 
-The configuration is prepared locally. No hosted scheduled run or automatic update is claimed by this change.
+The Renovate configuration is published, but hosted App activation has not been verified. No Dependency Dashboard or Renovate PR was present at the 2026-10-22 closeout audit. Native release monitoring above operates independently; absence of Renovate does not prevent detection. Renovate can additionally prepare the version-edit PRs when the owner grants the App access.
 
 1. Publish the reviewed files through the repository's normal branch/PR process and merge to the default branch.
 2. Enable the [Renovate GitHub App](https://github.com/apps/renovate) for `OKHP3/shoal-ai-server`, or verify its existing access. Complete onboarding if offered. Do not add a broad personal access token to this repository.
@@ -26,7 +47,7 @@ The configuration is prepared locally. No hosted scheduled run or automatic upda
 4. Confirm each PR changes only expected files, includes release links, contains no prerelease/nightly/dev tags, and does not merge itself. Reject a PR if one Open WebUI artifact has not yet reached the matching version.
 5. Confirm a real scheduled run the following Monday. If none appears, inspect App access, onboarding, schedule, permissions, and extraction errors before treating monitoring as active. Absence of a PR does not prove everything is current.
 
-These are repository configuration instructions, not an unattended host-upgrade job. The owner/operator performs activation and acceptance. No new GitHub Actions workflow, server runtime, or root dependency installation is required for this design.
+The owner/operator performs App activation and acceptance. These instructions are not an unattended host-upgrade job. Neither monitoring route defines a SHOAL server runtime or requires a root dependency installation.
 
 ## Review and upgrade sequence
 
@@ -57,7 +78,7 @@ The first backlog is to assess Open WebUI 0.10.2 to 0.11.3, establish stable con
 | Research-only products and absent frontend frameworks | No install/update action | Add a real manifest/pin, tests, and inventory row if adopted |
 | Hosted services | Vendor manages service version | Verify actual integration behavior; do not invent semver dependencies |
 
-Monthly and quarterly entries are an operator plan, not installed Codex reminders or GitHub schedules. Expedite relevant security releases outside the weekly window after assessing compatibility. Failed lookups, validation, and unsupported hosts remain visibly pending.
+Monthly and quarterly entries are an operator plan, not installed Codex reminders or additional GitHub schedules. The native weekly workflow covers the 19 entries described above. Expedite relevant security releases outside that window after assessing compatibility. Failed lookups, validation, and unsupported hosts remain visibly pending.
 
 ## Collect real installed versions
 
@@ -81,7 +102,7 @@ For Docker, confirm the running image ID and repository digest, not only its tag
 
 ## Completion criteria
 
-Monitoring is active only after successful hosted extraction and a scheduled run. Documentation updates require validated examples and links. A live upgrade is complete only after installed-version, backup/restore, and functional checks pass on that host. Local configuration validation does not prove those remote outcomes.
+Native monitoring requires a successful canonical-branch hosted run, complete source coverage, and its visible report/review issue. Record trigger types accurately: the first future scheduled run remains unobserved until it actually executes. Renovate activation requires its successful hosted extraction and scheduled run separately. Documentation updates require validated examples and links. A live upgrade is complete only after installed-version, backup/restore, and functional checks pass on that host. Local validation does not prove those remote outcomes.
 
 ## Validation of this change
 
