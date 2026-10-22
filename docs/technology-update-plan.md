@@ -72,7 +72,8 @@ The first backlog is to assess Open WebUI 0.10.2 to 0.11.3, establish stable con
 | Docker Desktop, curl, Bash, Zsh, platform Git builds, VS Code | Vendor updater plus monthly official release review | Installed version and relevant commands still work |
 | Windows, WSL, macOS, Linux, drivers, launchd, system utilities | Supported vendor/distribution security updates; separate feature migration plan | Correct device/channel, restart completed, reef smoke tests pass |
 | Chrome, Edge, Firefox, Safari, fish operating systems | Vendor automatic security updates where supported; monthly smoke test | Sign-in, response streaming, reopening history work |
-| Markdown, JSON, JSON5, YAML, ECMAScript standards | Quarterly review and when a parser/runtime changes | Existing content parses/renders correctly |
+| Markdown, JSON, JSON5, YAML, TOML, ECMAScript, HTML, and SVG/XML standards | Quarterly review and when a parser/runtime or publishing target changes | Existing content parses/renders correctly; distinguish draft standards from final releases |
+| PNG, JPEG, ICO, and vector brand assets | Review when replacing assets or changing browser/OS support | Dimensions, transparency, accessibility, and rendering verified; no automatic re-encoding on a format revision |
 | Models | Review selected-tag changes and new candidates | Digest, license, memory/latency and output evaluation recorded privately; no automatic family substitution |
 | Imported Agent Skills | Canonical source review through skill promotion process | Source revision, license, focused diff, tests, mirror parity where applicable |
 | Research-only products and absent frontend frameworks | No install/update action | Add a real manifest/pin, tests, and inventory row if adopted |
