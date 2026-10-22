@@ -13,6 +13,21 @@ This is a dated audit. The ongoing [release review ledger](../.github/technology
 
 The [Replit contributor configuration](../.replit) declares Python 3.12 and Node.js 24 and runs the maintenance tests. Module names select release lines, not observed installed patch versions. The 15 upstream ledger baselines were refreshed from primary sources on 2026-10-22; `reviewedAtUtc` records that research date. Open WebUI's installation examples retain 0.10.2 pending compatibility and installation acceptance, while its current upstream release is tracked separately. The preserved, unpublished Replit publishing prototype has its own recovery inventory; its React, TypeScript, Vite, and Tailwind packages are not canonical dependencies.
 
+### Additional configuration and presentation formats, checked 2026-10-22
+
+The canonical tree now includes the contributor workflow/configuration and nine brand assets added after the September snapshot. These are formats and templates, not application packages. None declares an installed encoder, image library, website runtime, or format-edition pin.
+
+| Technology | In-place evidence | Current stable reference and maintenance |
+|---|---|---|
+| TOML | Contributor `.replit` configuration; simple keys and arrays | [TOML 1.1.0](https://toml.io/en/); retain syntax supported by Replit and the validation interpreter |
+| PNG | Five brand/icon files under `assets/brand/` | [PNG Third Edition Recommendation](https://www.w3.org/TR/png/); check image dimensions, transparency, and rendering rather than rewriting assets on a specification increment |
+| SVG / XML | Two vector assets; SVG namespace, no explicit version attribute | [SVG 1.1 Second Edition Recommendation](https://www.w3.org/TR/SVG11/); [SVG 2](https://www.w3.org/TR/SVG2/) is a Candidate Recommendation Snapshot, not a final Recommendation |
+| JPEG | `social-preview.jpg` | [JPEG 1, ISO/IEC 10918](https://jpeg.org/jpeg/); other JPEG families are separate formats, not drop-in package upgrades |
+| ICO | `favicon.ico`, a multi-image icon resource | [Microsoft icon resource documentation](https://learn.microsoft.com/en-us/windows/win32/menurc/icon-resource); no independently selected semver release; maintain decoder compatibility through browser/OS updates |
+| HTML and page metadata | Future-page example in [branding](branding.md), not a deployed page | [WHATWG HTML Living Standard](https://html.spec.whatwg.org/multipage/introduction.html), observed updated 2026-10-20; no numbered dependency to bump |
+
+Review these standards quarterly and when changing their parser, renderer, or publishing target. See the update plan's coverage table. The current release monitor covers the 19 executable-tool/release targets described above. Image formats follow the standards and compatibility review path.
+
 ## Evidence and coverage
 
 The audit inspected all 421 tracked files, including hidden directories: 22 Python files, 17 JavaScript ES modules, two CommonJS files, and seven nested `package.json` files. Python imports use the standard library. JavaScript uses Node built-ins and local modules. All seven manifests declare private packages at `0.1.0`, with no external dependency declarations or runtime engine pins.
